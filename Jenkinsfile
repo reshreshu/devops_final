@@ -14,16 +14,15 @@ pipeline {
             }
         }
 
-        stage('Run Script') {
-            steps {
-                // This runs index.js and shows the sum in Console Output
-                sh 'node index.js'
-            }
-        }
-
         stage('Run Tests') {
             steps {
                 sh 'npm test'
+            }
+        }
+
+        stage('Run Addition Code') {
+            steps {
+                sh 'node index.js'
             }
         }
     }
