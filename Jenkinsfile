@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/your-username/node-ci-project.git'
+                git 'https://github.com/reshreshu/devops_final.git'
             }
         }
 
