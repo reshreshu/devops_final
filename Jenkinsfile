@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/reshreshu/devops_final.git'
+                git credentialsId: 'github-token', url: 'https://github.com/reshreshu/devops_final.git'
             }
         }
 
@@ -22,9 +22,6 @@ pipeline {
     }
 
     post {
-        success {
-            echo '✅ Tests ran successfully.'
-        }
         failure {
             echo '❌ Tests failed. Check logs.'
         }
