@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git credentialsId: 'github-token', url: 'https://github.com/reshreshu/devops_final.git'
+                git branch: 'main', credentialsId: 'github-token', url: 'https://github.com/reshreshu/devops_final.git'
             }
         }
 
