@@ -21,7 +21,7 @@ pipeline {
         stage('Run Script') {
             steps {
                 // Start server in background and store its PID
-                sh 'PORT=$PORT node index.js & echo $! > server.pid'
+                sh 'PORT=$PORT node index.js'
                 sh 'sleep 2' // Give server time to start
             }
         }
