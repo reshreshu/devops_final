@@ -1,11 +1,14 @@
-const http = require('http');
-const port = process.env.PORT || 3000;
-
-const server = http.createServer((req, res) => {
-  res.end('Server running on port ' + port);
-});
-
-server.listen(port, '0.0.0.0', () => {
-    console.log(`✅ Server is running on port ${port}`);
-});
-
+{
+    "name": "node-ci-project",
+    "version": "1.0.0",
+    "description": "A simple Node.js project for Jenkins CI testing",
+    "main": "index.js",
+    "scripts": {
+      "test": "node test.js"
+    },
+    "author": "Your Name",
+    "license": "ISC"
+  }
+  package.jsonfunction add(a, b) {
+    return a + b;
+  }
