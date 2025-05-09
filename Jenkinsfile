@@ -29,8 +29,19 @@ pipeline {
     }
 
     post {
+        success {
+            echo '✅ Pipeline successful! All tests passed and everything is good.'
+            // Add more post-success actions here, such as notifications
+        }
+
         failure {
-            echo '❌ Tests failed. Check logs.'
+            echo '❌ Tests failed. Check logs for more details.'
+            // You can add email notifications or Slack notifications here for failure
+        }
+
+        always {
+            echo '⚙️ Cleaning up resources and performing any necessary tasks.'
+            // This block will always run, regardless of success or failure
         }
     }
-} 
+}
