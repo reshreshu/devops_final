@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PORT = '3000'
-    }
-
     stages {
         stage('Clone Code') {
             steps {
@@ -20,9 +16,8 @@ pipeline {
 
         stage('Run Script') {
             steps {
-                // Start server in background and store its PID
-                sh 'PORT=$PORT node index.js'
-                sh 'sleep 2' // Give server time to start
+                // This runs index.js and shows the sum in Console Output
+                sh 'node index.js'
             }
         }
 
@@ -34,20 +29,8 @@ pipeline {
     }
 
     post {
-        always {
-            // Kill the background server if it's running
-            sh '''
-                if [ -f server.pid ]; then
-                    kill $(cat server.pid) || true
-                    rm server.pid
-                fi
-            '''
-        }
-        success {
-            echo '✅ Tests ran successfully.'
-        }
         failure {
             echo '❌ Tests failed. Check logs.'
         }
     }
-}
+} 
